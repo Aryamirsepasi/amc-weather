@@ -1,0 +1,7 @@
+{
+  "name": "amc-weather",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

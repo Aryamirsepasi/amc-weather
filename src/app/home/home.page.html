@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      AMC-Weather
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        AMC-Weather
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <app-message *ngFor="let location of getLocations()" [location]="location"></app-message>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-text class="copyright">
+      <h6>©2023 Arya Mirsepasi, All rights reserved.</h6>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>

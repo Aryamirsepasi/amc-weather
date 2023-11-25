@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-item padding>
+      {{location.cityName }} , {{ location.country }}
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="locationData">
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item padding>
+        <ion-label slot="start">Temperature:</ion-label>
+        <ion-label slot="end" class="ion-padding-end">{{locationData.temperature}} Celsius</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">Feels like:</ion-label>
+        <ion-label slot="end" class="ion-padding-end">{{locationData.temperatureApparent}} Celsius</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">Humidity:</ion-label>
+        <ion-label slot="end" class="ion-padding-end">{{locationData.humidity}} %</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">UV Index:</ion-label>
+        <ion-label slot="end" class="ion-padding-end">{{locationData.uvIndex}}</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">Rain intensity:</ion-label>
+        <ion-label slot="end" class= "ion-padding-end">{{getrainIntensity()}}</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">Wind Speed:</ion-label>
+        <ion-label slot="end" class= "ion-padding-end">{{locationData.windSpeed}} km/h</ion-label>
+      </ion-item>
+      <ion-item padding>
+        <ion-label slot="start">Wind Direction:</ion-label>
+        <ion-label slot="end" class= "ion-padding-end">{{locationData.windDirection}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
