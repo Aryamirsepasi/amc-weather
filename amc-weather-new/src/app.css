@@ -1,0 +1,75 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-gradient-to-br from-weather-primary to-weather-secondary text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-weather-secondary/15 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card {
+    @apply glass p-4 shadow-lg hover:bg-weather-secondary/20 transition-all duration-300;
+  }
+
+  .material-icons-outlined {
+    @apply select-none leading-none;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+}
+
+/* Animation for weather transitions */
+.weather-fade-enter-active,
+.weather-fade-leave-active {
+  @apply transition-opacity duration-300;
+}
+
+.weather-fade-enter,
+.weather-fade-leave-to {
+  @apply opacity-0;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.03) 8%,
+    rgba(255, 255, 255, 0.07) 18%,
+    rgba(255, 255, 255, 0.03) 33%
+  );
+  background-size: 1000px 100%;
+}
